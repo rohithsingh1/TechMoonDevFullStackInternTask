@@ -8,7 +8,6 @@ const authMiddleware = require("../middleware/authMiddleware");
 
 router.post("/login", async (req, res) => {
   try {
-    console.log("nvkngkjhgkghgkfhbhjbfjfbhjbcvbnjbjc", req.body);
     const userExists = await User.findOne({ email: req.body.email });
     if (!userExists) {
       const hashedPassword = await bcrypt.hash(req.body.password, 10);
